@@ -2,8 +2,6 @@ package tienda.com.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,26 +11,26 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "detalle_venta")
-public class Detalle_Venta {
+public class Detalle_Venta{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_detalle;
-	
+	private Integer id_detalle;*/
+	@Id
 	@Column
 	private Integer cantidad;
 	
 	@Column
-	private Double precio;
-
+	private Double subtotal;
+	
 	@OneToOne
-    @JoinColumn(name = "id_venta", referencedColumnName = "id_venta")
+    @JoinColumn(name = "id_venta", referencedColumnName = "id_venta",nullable=false)
     private Ventas ventas;
 	
 	@ManyToOne
-	@JoinColumn(name="id_prod", nullable=false)
+	@JoinColumn(name="id_prod", referencedColumnName = "id_prod")
 	private Producto producto;
 	
 	public Detalle_Venta() {
@@ -40,10 +38,10 @@ public class Detalle_Venta {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Detalle_Venta(Integer cantidad, Double precio) {
+	public Detalle_Venta(Integer cantidad, Double subtotal) {
 		super();
 		this.cantidad = cantidad;
-		this.precio = precio;
+		this.subtotal = subtotal;
 	}
 
 	public Integer getCantidad() {
@@ -54,12 +52,12 @@ public class Detalle_Venta {
 		this.cantidad = cantidad;
 	}
 
-	public Double getPrecio() {
-		return precio;
+	public Double getSubtotal() {
+		return subtotal;
 	}
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
+	public void setSubtotal(Double subtotal) {
+		this.subtotal = subtotal;
 	}
 
 	public static long getSerialversionuid() {

@@ -28,6 +28,12 @@ public class Producto {
 	
 	@Column(length = 50)
     private Double precio_prod;
+	
+	@Column(length = 50)
+    private Integer stock;
+	
+	@Column(length = 50)
+    private Boolean estado;
 
 	
 	@OneToMany(mappedBy="producto")
@@ -42,16 +48,35 @@ public class Producto {
 	private Marca marca;
 	
 	
+	
 	public Producto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(Integer id_prod, String nom_prod, Double precio_prod) {
+	public Producto(Integer id_prod, String nom_prod, Double precio_prod,  Integer stock, Boolean estado) {
 		super();
 		this.id_prod = id_prod;
 		this.nom_prod = nom_prod;
 		this.precio_prod = precio_prod;
+		this.stock = stock;
+		this.estado = estado;
+	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 
 	public Integer getId_prod() {

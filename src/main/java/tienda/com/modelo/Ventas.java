@@ -20,6 +20,7 @@ public class Ventas {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable=false)
 	private Integer id_venta;
 	
 	@Temporal(TemporalType.DATE)
@@ -28,10 +29,11 @@ public class Ventas {
 	@Column(length = 50)
     private Integer total_venta;
 
+	//MAPEO DE LA TABLA VENTA A DETALLE_VENTA
 	@OneToOne(mappedBy = "ventas")
     private Detalle_Venta detalle_venta;
 	
-	
+	//UNIENDO COLUMNA ID_USUARIO A TABLA VENTAS
 	@ManyToOne
 	@JoinColumn(name="id_usu", nullable=false)
 	private Usuario usuario;
