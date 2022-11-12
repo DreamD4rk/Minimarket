@@ -3,11 +3,13 @@ package tienda.com.services;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import tienda.com.modelo.Usuario;
 import tienda.com.repositorio.UsuarioRepositorio;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService{
 
 	@Autowired
