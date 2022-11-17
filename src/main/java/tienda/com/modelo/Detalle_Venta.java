@@ -8,17 +8,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 
 @Entity
 @Table(name = "detalle_venta")
+@Data
 public class Detalle_Venta{
 	
 	private static final long serialVersionUID = 1L;
 	
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_detalle;*/
-	@Id
 	@Column
 	private Integer cantidad;
 	
@@ -33,34 +32,4 @@ public class Detalle_Venta{
 	@JoinColumn(name="id_prod", referencedColumnName = "id_prod")
 	private Producto producto;
 	
-	public Detalle_Venta() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Detalle_Venta(Integer cantidad, Double subtotal) {
-		super();
-		this.cantidad = cantidad;
-		this.subtotal = subtotal;
-	}
-
-	public Integer getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public Double getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(Double subtotal) {
-		this.subtotal = subtotal;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 }

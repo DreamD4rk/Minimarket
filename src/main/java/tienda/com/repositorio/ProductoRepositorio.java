@@ -1,9 +1,13 @@
 package tienda.com.repositorio;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import tienda.com.modelo.Producto;
 
-public interface ProductoRepositorio extends CrudRepository<Producto, Integer>{
-
+@Repository
+public interface ProductoRepositorio extends JpaRepository<Producto, Integer>{
+	List<Producto> findByCategoriaNombre(String nombre);
 }
