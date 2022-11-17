@@ -1,4 +1,4 @@
-package tienda.com.rest;
+package tienda.com.controller;
 
 import java.util.Collection;
 
