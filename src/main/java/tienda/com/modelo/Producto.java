@@ -37,11 +37,11 @@ public class Producto {
     private Boolean estado;
 	
 	@ManyToOne
-	@JoinColumn(name="id_cat", nullable=false)
+	@JoinColumn(name="idCat", nullable=false)
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JoinColumn(name="id_marca", nullable=false)
+	@JoinColumn(name="idMarca", nullable=false)
 	private Marca marca;
 	
 }
