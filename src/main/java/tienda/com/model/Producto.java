@@ -20,15 +20,15 @@ public class Producto {
     private Boolean estado;
 
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "detalles_ventas",
-            joinColumns = {
-                    @JoinColumn(name = "producto_id", referencedColumnName = "id",
-                            nullable = false, updatable = false)},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "venta_id", referencedColumnName = "id",
-                            nullable = false, updatable = false)})
-    private Set<Venta> itemsVenta = new HashSet<>();
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    @JoinTable(name = "detalles_ventas",
+//            joinColumns = {
+//                    @JoinColumn(name = "producto_id", referencedColumnName = "id",
+//                            nullable = false, updatable = false)},
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "venta_id", referencedColumnName = "id",
+//                            nullable = false, updatable = false)})
+//    private Set<Venta> itemsVenta = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)

@@ -19,8 +19,8 @@ public class Venta {
     private Date fecha;
     private Integer total;
 
-    @ManyToMany(mappedBy = "itemsVenta")
-    private Set<Producto> itemsProducto = new HashSet<>();
+//    @ManyToMany(mappedBy = "itemsVenta")
+//    private Set<Producto> itemsProducto = new HashSet<>();
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
