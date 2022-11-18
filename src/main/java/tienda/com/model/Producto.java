@@ -3,7 +3,8 @@ package tienda.com.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "productos")
@@ -19,8 +20,15 @@ public class Producto {
     private Boolean estado;
 
 
-    @OneToMany(mappedBy = "producto")
-    private List<DetalleVenta> itemsDetalleVenta;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "detalles_ventas",
+            joinColumns = {
+                    @JoinColumn(name = "producto_id", referencedColumnName = "id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "venta_id", referencedColumnName = "id",
+                            nullable = false, updatable = false)})
+    private Set<Venta> itemsVenta = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)

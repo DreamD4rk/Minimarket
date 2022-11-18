@@ -2,17 +2,16 @@ package tienda.com.services;
 
 import java.util.Collection;
 
+import tienda.com.model.Usuario;
+import tienda.com.repository.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tienda.com.modelo.Usuario;
-import tienda.com.repositorio.UsuarioRepositorio;
-
 @Service
 public class UsuarioServiceImpl implements UsuarioService{
 
-	@Autowired
+	@Autowired 
 	private UsuarioRepositorio usurepository;
 	
 	@Override
@@ -29,14 +28,14 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	@Transactional
-	public void delete(Integer id_usu) {
-		usurepository.deleteById(id_usu);
+	public void delete(Integer id) {
+		usurepository.deleteById(id);
 	}
 
 	@Override
 	@Transactional
-	public Usuario findById(Integer id_usu) {
-		return usurepository.findById(id_usu).orElse(null);
+	public Usuario findById(Integer id) {
+		return usurepository.findById(id).orElse(null);
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "ventas")
@@ -17,9 +19,8 @@ public class Venta {
     private Date fecha;
     private Integer total;
 
-    @OneToOne(mappedBy = "venta")
-    private DetalleVenta detalleVenta;
-
+    @ManyToMany(mappedBy = "itemsVenta")
+    private Set<Producto> itemsProducto = new HashSet<>();
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;

@@ -1,15 +1,15 @@
 package tienda.com.services;
 
-import java.util.Collection;
+import tienda.com.model.Producto;
 
-import tienda.com.modelo.Producto;
+import java.util.Collection;
 
 public interface ProductoService {
 	
 	public abstract void insert(Producto producto);
 	public abstract void update(Producto producto);
-	public abstract void delete(Integer id_prod);
-	public abstract Producto finfById(Integer id_prod);
+	public abstract void delete(Integer id);
+	public abstract Producto findById(Integer id);
 	public abstract Collection<Producto> findAll();
 
 }

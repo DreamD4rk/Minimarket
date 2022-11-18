@@ -1,15 +1,14 @@
 package tienda.com.services;
 
-import java.util.Collection;
-
+import tienda.com.model.Producto;
+import tienda.com.repository.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tienda.com.modelo.Producto;
-import tienda.com.repositorio.ProductoRepositorio;
+import java.util.Collection;
 
 @Service
-public class ProdcutoServiceImpl implements ProductoService{
+public class ProductoServiceImpl implements ProductoService{
 
 	@Autowired
 	private ProductoRepositorio productoRepositorio;
@@ -25,18 +24,18 @@ public class ProdcutoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public void delete(Integer id_prod) {
-		productoRepositorio.deleteById(id_prod);
+	public void delete(Integer id) {
+		productoRepositorio.deleteById(id);
 	}
 
 	@Override
-	public Producto finfById(Integer id_prod) {
-		return productoRepositorio.findById(id_prod).orElse(null);
+	public Producto findById(Integer id) {
+		return productoRepositorio.findById(id).orElse(null);
 	}
 
 	@Override
 	public Collection<Producto> findAll() {
-		return (Collection<Producto>) productoRepositorio.findAll();
+		return productoRepositorio.findAll();
 	}
 
 }

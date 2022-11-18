@@ -1,11 +1,10 @@
-package tienda.com.repositorio;
-
-import java.util.List;
+package tienda.com.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import tienda.com.model.Producto;
 
-import tienda.com.modelo.Producto;
+import java.util.List;
 
 @Repository
 public interface ProductoRepositorio extends JpaRepository<Producto, Integer>{

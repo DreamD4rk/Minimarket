@@ -1,9 +1,8 @@
-package tienda.com.repositorio;
+package tienda.com.repository;
 
+import tienda.com.model.Rol;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import tienda.com.modelo.Rol;
 
 @Repository
 public interface RolRepository extends CrudRepository<Rol, Integer> {
