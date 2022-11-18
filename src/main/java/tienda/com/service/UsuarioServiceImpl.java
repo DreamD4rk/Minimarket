@@ -1,4 +1,4 @@
-package tienda.com.services;
+package tienda.com.service;
 
 import java.util.Collection;
 

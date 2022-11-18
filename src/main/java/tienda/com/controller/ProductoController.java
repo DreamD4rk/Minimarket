@@ -1,7 +1,7 @@
 package tienda.com.controller;
 
 import tienda.com.model.Producto;
-import tienda.com.services.ProductoService;
+import tienda.com.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
