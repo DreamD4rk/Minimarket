@@ -1,6 +1,7 @@
 package tienda.com.services;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,19 +10,19 @@ import tienda.com.modelo.Producto;
 import tienda.com.repositorio.ProductoRepositorio;
 
 @Service
-public class ProdcutoServiceImpl implements ProductoService{
+public class ProductoServiceImpl implements ProductoService{
 
 	@Autowired
 	private ProductoRepositorio productoRepositorio;
 	
 	@Override
-	public void insert(Producto producto) {
-		productoRepositorio.save(producto);
-	}
-
-	@Override
-	public void update(Producto producto) {
-		productoRepositorio.save(producto);
+	public Integer save(Producto producto) {
+		int res = 0;
+		Producto pro=productoRepositorio.save(producto);
+		if(pro != null) {
+			res =1;
+		}
+		return res;
 	}
 
 	@Override
@@ -35,8 +36,8 @@ public class ProdcutoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public Collection<Producto> findAll() {
-		return (Collection<Producto>) productoRepositorio.findAll();
+	public List<Producto> findAll() {
+		return productoRepositorio.findAll();
 	}
 
 }

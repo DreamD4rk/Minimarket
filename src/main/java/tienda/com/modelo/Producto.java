@@ -36,6 +36,9 @@ public class Producto {
 	@Column(length = 20)
     private Boolean estado;
 	
+	@Column(length = 20)
+	private String imagen;
+	
 	@ManyToOne
 	@JoinColumn(name="idCat", nullable=false)
 	private Categoria categoria;

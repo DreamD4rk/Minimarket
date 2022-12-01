@@ -27,10 +27,13 @@ public class Usuario {
 	 	@Column(length = 50)
 	    private String nombre;
 	 	
+	 	@Column(unique = true,nullable = false)
+	 	private String username;
+	 	
 	 	@Column(length = 50)
 	    private String email;
 	 	
-	 	@Column(unique = true, nullable = false) //unique para que el password no se repita
+	 	@Column(nullable = false) //unique para que el password no se repita
 	    private Integer password;
 
 	 	// ONE-TO-ONE ASSOCIATIONS
