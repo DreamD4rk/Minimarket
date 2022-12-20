@@ -1,8 +1,11 @@
 package tienda.com.services;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,18 +20,6 @@ public class UsuarioServiceImpl implements UsuarioService{
 	
 	@Override
 	@Transactional
-	public void insert(Usuario user) {
-		usurepository.save(user);
-	}
-
-	@Override
-	@Transactional
-	public void update(Usuario user) {
-		usurepository.save(user);
-	}
-
-	@Override
-	@Transactional
 	public void delete(Integer id_usu) {
 		usurepository.deleteById(id_usu);
 	}
@@ -41,8 +32,30 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	@Transactional
-	public Collection<Usuario> findAll() {
-		return (Collection<Usuario>)usurepository.findAll();
+	public List<Usuario> findAll() {
+		return usurepository.findAll();
+	}
+
+	@Override
+	public Usuario iniciarSesion(String username, String password) {
+		return usurepository.findByUsernameAndPassword(username, password);
+	}
+
+	@Override
+	public Page<Usuario> pageAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return pageAll(pageable);
+	}
+
+	@Override
+	public int guardar(Usuario user) {
+		// TODO Auto-generated method stub
+		int res = 0;
+		Usuario usu = usurepository.save(user);
+		if(usu != null) {
+			res =1;
+		}
+		return res;
 	}
 
 }

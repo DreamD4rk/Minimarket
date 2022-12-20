@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import tienda.com.modelo.Producto;
@@ -38,6 +41,12 @@ public class ProductoServiceImpl implements ProductoService{
 	@Override
 	public List<Producto> findAll() {
 		return productoRepositorio.findAll();
+	}
+
+	@Override
+	public Page<Producto> getAll(Pageable page) {
+		// TODO Auto-generated method stub
+		return productoRepositorio.findAll(page);
 	}
 
 }

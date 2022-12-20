@@ -13,7 +13,6 @@ import lombok.Data;
 
 @Entity
 @Table(name = "categoria")
-@Data
 public class Categoria {
 	
 	private static final long serialVersionUID = 1L;
@@ -24,6 +23,34 @@ public class Categoria {
 
 	@Column(length = 150)
 	private String nombre;
+
+	public Integer getIdCat() {
+		return idCat;
+	}
+
+	public void setIdCat(Integer idCat) {
+		this.idCat = idCat;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Categoria(Integer idCat, String nombre) {
+		super();
+		this.idCat = idCat;
+		this.nombre = nombre;
+	}
 	
-	
+	public Categoria() {
+		// TODO Auto-generated constructor stub
+	}
 }

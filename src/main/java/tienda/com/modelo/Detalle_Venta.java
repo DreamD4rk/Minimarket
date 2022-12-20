@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +17,7 @@ import lombok.Data;
 
 
 @Entity
-@Table(name = "detalle_venta")
+@Table(name = "detalle_ventas")
 @Data
 
 public class Detalle_Venta implements Serializable{
@@ -26,21 +28,50 @@ public class Detalle_Venta implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idDetalleVenta;
+	
 	@Column
 	private Integer cantidad;
 	
-	@Column
-	private Double subtotal;
-	
-	//Chales we, ahora el ventasId tambien sea la clave primaria aqui
-	//Ya que borraron el @id  >:v
-	@EmbeddedId
-	@OneToOne
-    @JoinColumn(name = "ventaId", referencedColumnName = "ventaId",nullable=false)
-    private Ventas ventas;
-	
 	@ManyToOne
-	@JoinColumn(name="idPro", referencedColumnName = "idPro")
-	private Producto producto;
+	@JoinColumn(name="id_pro")
+	private Producto idPro;
 	
+	public Detalle_Venta() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Detalle_Venta(Integer idDetalleVenta, Integer cantidad, Producto idPro) {
+		super();
+		this.idDetalleVenta = idDetalleVenta;
+		this.cantidad = cantidad;
+		this.idPro = idPro;
+	}
+
+	public Integer getIdDetalleVenta() {
+		return idDetalleVenta;
+	}
+
+	public void setIdDetalleVenta(Integer idDetalleVenta) {
+		this.idDetalleVenta = idDetalleVenta;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Producto getIdPro() {
+		return idPro;
+	}
+
+	public void setIdPro(Producto idPro) {
+		this.idPro = idPro;
+	}
+
 }
