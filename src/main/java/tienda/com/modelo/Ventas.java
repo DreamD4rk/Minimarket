@@ -34,26 +34,27 @@ public class Ventas {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha;
 
-	@Column(length = 50)
-	private Integer total;
-
 
 	// UNIENDO COLUMNA ID_USUARIO A TABLA VENTAS
 	@ManyToOne
-	@JoinColumn(name = "usu_id", nullable = false)
-	private Usuario usuario;
+	@JoinColumn(name = "usu_id")
+	private Usuario usuId;
+	
 	
 	public Ventas() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ventas(Integer ventaId, Date fecha, Integer total, Usuario usuario) {
+	
+
+	public Ventas(Integer ventaId, Date fecha, Usuario usuId) {
 		super();
 		this.ventaId = ventaId;
 		this.fecha = fecha;
-		this.total = total;
-		this.usuario = usuario;
+		this.usuId = usuId;
 	}
+
+
 
 	public Integer getVentaId() {
 		return ventaId;
@@ -71,20 +72,13 @@ public class Ventas {
 		this.fecha = fecha;
 	}
 
-	public Integer getTotal() {
-		return total;
+	public Usuario getUsuId() {
+		return usuId;
 	}
 
-	public void setTotal(Integer total) {
-		this.total = total;
+	public void setUsuId(Usuario usuId) {
+		this.usuId = usuId;
 	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 	
 }

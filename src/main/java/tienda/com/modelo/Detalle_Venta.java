@@ -39,16 +39,25 @@ public class Detalle_Venta implements Serializable{
 	@JoinColumn(name="id_pro")
 	private Producto idPro;
 	
+	@ManyToOne
+	@JoinColumn(name = "venta_id")
+	private Ventas ventaId;
+	
 	public Detalle_Venta() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Detalle_Venta(Integer idDetalleVenta, Integer cantidad, Producto idPro) {
+	
+
+	public Detalle_Venta(Integer idDetalleVenta, Integer cantidad, Producto idPro, Ventas ventaId) {
 		super();
 		this.idDetalleVenta = idDetalleVenta;
 		this.cantidad = cantidad;
 		this.idPro = idPro;
+		this.ventaId = ventaId;
 	}
+
+
 
 	public Integer getIdDetalleVenta() {
 		return idDetalleVenta;
@@ -74,4 +83,18 @@ public class Detalle_Venta implements Serializable{
 		this.idPro = idPro;
 	}
 
+
+
+	public Ventas getVentaId() {
+		return ventaId;
+	}
+
+
+
+	public void setVentaId(Ventas ventaId) {
+		this.ventaId = ventaId;
+	}
+
+	
+	
 }

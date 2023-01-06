@@ -42,7 +42,7 @@ public class Usuario {
 	    private Rol idRol;
 	 	
 	    //RELACION CON VENTAS
-	    @OneToMany(mappedBy="usuario")
+	    @OneToMany(mappedBy="usuId")
 	    private List<Ventas> ventas;
 	    
 	    public Usuario() {
