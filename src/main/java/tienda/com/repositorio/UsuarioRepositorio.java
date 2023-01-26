@@ -4,11 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import tienda.com.modelo.Usuario;
+import tienda.com.modelo.Clientes;
 
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer> {
+public interface UsuarioRepositorio extends JpaRepository<Clientes, Integer> {
 
-	Usuario findByUsernameAndPassword(String username,String password);
+	Clientes findByUsernameAndPassword(String username,String password);
 	
 }

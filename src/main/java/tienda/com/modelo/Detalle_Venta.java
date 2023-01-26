@@ -19,14 +19,8 @@ import lombok.Data;
 @Entity
 @Table(name = "detalle_ventas")
 @Data
-
-public class Detalle_Venta implements Serializable{
+public class Detalle_Venta{
 	
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +34,7 @@ public class Detalle_Venta implements Serializable{
 	private Producto idPro;
 	
 	@ManyToOne
-	@JoinColumn(name = "venta_id")
+	@JoinColumn(name = "venta_id",insertable = true,updatable = true)
 	private Ventas ventaId;
 	
 	public Detalle_Venta() {

@@ -30,6 +30,12 @@ public class DetalleVentaServiceImpl implements DetalleVentaService {
 		return data.findAll();
 	}
 
+	@Override
+	public List<Detalle_Venta> buscarXventa(Integer id) {
+		// TODO Auto-generated method stub
+		return data.findByVentaIdVentaId(id);
+	}
+
 	
 	
 }

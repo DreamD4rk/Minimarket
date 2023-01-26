@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,12 @@ public class DetalleVentaController {
 	@GetMapping("")
 	public ResponseEntity<List<Detalle_Venta>> listar(){
 		List<Detalle_Venta> lista=data.listar();
+		return ResponseEntity.ok(lista);
+	}
+	
+	@GetMapping("/xventa/{id}")
+	public ResponseEntity<List<Detalle_Venta>> listarXventa(@PathVariable Integer id){
+		List<Detalle_Venta> lista = data.buscarXventa(id);
 		return ResponseEntity.ok(lista);
 	}
 	

@@ -2,6 +2,7 @@ package tienda.com.modelo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +16,6 @@ import lombok.Data;
 @Entity
 @Table(name = "marca")
 public class Marca {
-	
-	private static final long serialVersionUID = 1L;
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,16 +44,11 @@ public class Marca {
 		this.nombre = nombre;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	public Marca(Integer idMarca, String nombre) {
 		super();
 		this.idMarca = idMarca;
 		this.nombre = nombre;
 	}
-	
 	
 	
 }

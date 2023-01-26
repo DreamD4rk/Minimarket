@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import tienda.com.modelo.Producto;
-import tienda.com.modelo.Usuario;
+import tienda.com.modelo.Clientes;
 import tienda.com.services.UsuarioServiceImpl;
 
 @CrossOrigin(origins = {"http://localhost:4200","*"},allowedHeaders = "*")
@@ -29,24 +29,24 @@ public class UsusarioController {
 	@Autowired private UsuarioServiceImpl data;
 	
 	@GetMapping("/sesion/{username}/{password}")
-	public ResponseEntity<Usuario> iniciarSesion(@PathVariable String username,@PathVariable String password){
-		Usuario usu=data.iniciarSesion(username, password);
-		return new ResponseEntity<Usuario>(usu,HttpStatus.OK);
+	public ResponseEntity<Clientes> iniciarSesion(@PathVariable String username,@PathVariable String password){
+		Clientes usu=data.iniciarSesion(username, password);
+		return new ResponseEntity<Clientes>(usu,HttpStatus.OK);
 	}
 	
 	@GetMapping("/list")
-	public Page<Usuario> listar(@RequestParam(defaultValue = "0") int page){
+	public Page<Clientes> listar(@RequestParam(defaultValue = "0") int page){
 		return data.pageAll(new QPageRequest(page, 4));
 	}
 	
 	@GetMapping("")
-	public ResponseEntity<List<Usuario>> listar(){
-		List<Usuario> lista = data.findAll();
+	public ResponseEntity<List<Clientes>> listar(){
+		List<Clientes> lista = data.findAll();
 		return ResponseEntity.ok(lista);
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<Integer> agregar(@RequestBody Usuario usuario){
+	public ResponseEntity<Integer> agregar(@RequestBody Clientes usuario){
 		int res = data.guardar(usuario);
 		if(res == 0 ) {
 			return new ResponseEntity<Integer>(res,HttpStatus.NOT_FOUND);
@@ -55,7 +55,7 @@ public class UsusarioController {
 	}
 	
 	@PutMapping("")
-	public ResponseEntity<Integer> actualizar(@RequestBody Usuario usuario){
+	public ResponseEntity<Integer> actualizar(@RequestBody Clientes usuario){
 		int res = data.guardar(usuario);
 		if(res == 0 ) {
 			return new ResponseEntity<Integer>(res,HttpStatus.NOT_FOUND);

@@ -8,5 +8,6 @@ public interface DetalleVentaService {
 
 	public int guardar(Detalle_Venta detallev);
 	public List<Detalle_Venta> listar();
+	public List<Detalle_Venta> buscarXventa(Integer id);
 	
 }

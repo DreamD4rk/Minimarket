@@ -1,6 +1,11 @@
 package tienda.com.services;
 
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import tienda.com.modelo.Ventas;
@@ -20,6 +25,12 @@ public class VentaServiceImpl implements VentaService {
 			res=1;
 		}
 		return res;
+	}
+
+	@Override
+	public List<Ventas> filtrarXventa(String fecha) {
+		// TODO Auto-generated method stub
+		return data.findByFecha(fecha);
 	}
 
 }

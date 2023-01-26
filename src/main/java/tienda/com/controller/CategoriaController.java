@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tienda.com.modelo.Categoria;
 import tienda.com.modelo.Marca;
-import tienda.com.modelo.Usuario;
+import tienda.com.modelo.Clientes;
 import tienda.com.repositorio.CategoriaRepository;
 
 @CrossOrigin(origins = {"http://localhost:4200","*"},allowedHeaders = "*")

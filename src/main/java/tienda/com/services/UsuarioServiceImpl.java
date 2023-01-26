@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import tienda.com.modelo.Usuario;
+import tienda.com.modelo.Clientes;
 import tienda.com.repositorio.UsuarioRepositorio;
 
 @Service
@@ -26,32 +26,32 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	@Transactional
-	public Usuario findById(Integer id_usu) {
+	public Clientes findById(Integer id_usu) {
 		return usurepository.findById(id_usu).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public List<Usuario> findAll() {
+	public List<Clientes> findAll() {
 		return usurepository.findAll();
 	}
 
 	@Override
-	public Usuario iniciarSesion(String username, String password) {
+	public Clientes iniciarSesion(String username, String password) {
 		return usurepository.findByUsernameAndPassword(username, password);
 	}
 
 	@Override
-	public Page<Usuario> pageAll(Pageable pageable) {
+	public Page<Clientes> pageAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return pageAll(pageable);
 	}
 
 	@Override
-	public int guardar(Usuario user) {
+	public int guardar(Clientes user) {
 		// TODO Auto-generated method stub
 		int res = 0;
-		Usuario usu = usurepository.save(user);
+		Clientes usu = usurepository.save(user);
 		if(usu != null) {
 			res =1;
 		}

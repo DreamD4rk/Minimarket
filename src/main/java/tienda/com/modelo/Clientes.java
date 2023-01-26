@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Clientes {
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Integer id;
@@ -42,15 +42,14 @@ public class Usuario {
 	    private Rol idRol;
 	 	
 	    //RELACION CON VENTAS
-	    @OneToMany(mappedBy="usuId")
-	    private List<Ventas> ventas;
+	    /*@OneToMany(mappedBy="id")
+	    private List<Ventas> ventas;*/
 	    
-	    public Usuario() {
+	    public Clientes() {
 			// TODO Auto-generated constructor stub
 		}
 
-		public Usuario(Integer id, String nombre, String username, String email, String password, Rol idRol,
-				List<Ventas> ventas) {
+		public Clientes(Integer id, String nombre, String username, String email, String password, Rol idRol) {
 			super();
 			this.id = id;
 			this.nombre = nombre;
@@ -58,7 +57,6 @@ public class Usuario {
 			this.email = email;
 			this.password = password;
 			this.idRol = idRol;
-			this.ventas = ventas;
 		}
 
 		public Integer getId() {
@@ -108,15 +106,5 @@ public class Usuario {
 		public void setIdRol(Rol idRol) {
 			this.idRol = idRol;
 		}
-
-		public List<Ventas> getVentas() {
-			return ventas;
-		}
-
-		public void setVentas(List<Ventas> ventas) {
-			this.ventas = ventas;
-		}
-	    
-	    
 
 }

@@ -21,15 +21,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Data;
 
 @Entity
-@Table(name = "venta")
+@Table(name = "ventas")
 @Embeddable
 public class Ventas {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ventaId;
-
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fecha;
@@ -37,48 +35,52 @@ public class Ventas {
 
 	// UNIENDO COLUMNA ID_USUARIO A TABLA VENTAS
 	@ManyToOne
-	@JoinColumn(name = "usu_id")
-	private Usuario usuId;
+	@JoinColumn(name = "id")
+	private Clientes id;
 	
 	
 	public Ventas() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
-	public Ventas(Integer ventaId, Date fecha, Usuario usuId) {
+	public Ventas(Integer ventaId, Date fecha, Clientes id) {
 		super();
 		this.ventaId = ventaId;
 		this.fecha = fecha;
-		this.usuId = usuId;
+		this.id = id;
 	}
-
 
 
 	public Integer getVentaId() {
 		return ventaId;
 	}
 
+
 	public void setVentaId(Integer ventaId) {
 		this.ventaId = ventaId;
 	}
+
 
 	public Date getFecha() {
 		return fecha;
 	}
 
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public Usuario getUsuId() {
-		return usuId;
+
+	public Clientes getId() {
+		return id;
 	}
 
-	public void setUsuId(Usuario usuId) {
-		this.usuId = usuId;
+
+	public void setId(Clientes id) {
+		this.id = id;
 	}
+	
 	
 	
 }

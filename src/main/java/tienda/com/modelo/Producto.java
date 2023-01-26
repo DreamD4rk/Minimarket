@@ -1,6 +1,7 @@
 package tienda.com.modelo;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,6 @@ import lombok.Data;
 @Entity
 @Table(name = "producto")
 public class Producto {
-
-	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,24 +31,23 @@ public class Producto {
 	@Column(length = 50)
     private Integer stock;
 	
-	@Column(length = 20)
-    private Boolean estado;
+    private String estado;
 	
 	private String imagen;
 	
-	@ManyToOne
-	@JoinColumn(name="idCat")
+	@ManyToOne()
+	@JoinColumn(name="id_cat")
 	private Categoria idCat;
 	
-	@ManyToOne
-	@JoinColumn(name="idMarca")
+	@ManyToOne()
+	@JoinColumn(name="id_marca")
 	private Marca idMarca;
 
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(Integer idPro, String nombre, Double precio, Integer stock, Boolean estado, String imagen,
+	public Producto(Integer idPro, String nombre, Double precio, Integer stock, String estado, String imagen,
 			Categoria idCat, Marca idMarca) {
 		super();
 		this.idPro = idPro;
@@ -94,11 +92,11 @@ public class Producto {
 		this.stock = stock;
 	}
 
-	public Boolean getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
